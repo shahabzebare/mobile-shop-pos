@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Smart_Center.UserControls.Product.UserControlUpdateProduct"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Smart_Center.UserControls.Product"
+             mc:Ignorable="d" 
+             d:DesignHeight="580" d:DesignWidth="550"
+             Background="White"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+              FlowDirection="RightToLeft"
+        FontFamily="Tahoma"
+             Loaded="onProductLoad"
+             >
+    <Grid>
+        <StackPanel Margin="10" Width="530" Height="550">
+            <Label FontSize="20" VerticalAlignment="Center" Foreground="#212121" Margin="10,5" FontWeight="ExtraBold">زێده‌كرنا پێناسه‌كا نوی</Label>
+            <Separator Margin="0,0,0,30" Background="#757575"></Separator>
+
+            <TextBox x:Name="txtName" materialDesign:HintAssist.Hint="ناڤی پێناسێ بنڤیسه‌" Width="500" Margin="15,5"/>
+
+            <ComboBox x:Name="cmbCategory" materialDesign:HintAssist.Hint="به‌ش" DisplayMemberPath="Name"  Width="500" Margin="15,5">
+
+            </ComboBox>
+
+            <TextBox IsReadOnly="True" x:Name="txtBarcode" materialDesign:HintAssist.Hint="باركودێ پێناسێ بنڤیسه‌" Width="500" Margin="15,5"/>
+
+            <ComboBox x:Name="cmbCompany" materialDesign:HintAssist.Hint="كومپانی"  Width="500" Margin="15,5">
+                <ComboBoxItem>سامسونگ</ComboBoxItem>
+                <ComboBoxItem>ئه‌پل</ComboBoxItem>
+                <ComboBoxItem>هیواوی</ComboBoxItem>
+                <ComboBoxItem>نوكیا</ComboBoxItem>
+                <ComboBoxItem>ئوپو</ComboBoxItem>
+            </ComboBox>
+
+            <TextBox x:Name="txtByePrice" TextChanged="onlyNumber"  materialDesign:HintAssist.Hint="بهایێ كرینێ بنڤیسه‌" Width="500" Margin="15,5"/>
+
+            <TextBox x:Name="txtSalesPrice" TextChanged="onlyNumber" materialDesign:HintAssist.Hint="بهایێ فروتنێ بنڤیسه‌" Width="500" Margin="15,5"/>
+
+
+            <ComboBox x:Name="cmbColor" materialDesign:HintAssist.Hint="ره‌نگ"  Width="500" Margin="15,5">
+                <ComboBoxItem>ره‌ش</ComboBoxItem>
+                <ComboBoxItem>زه‌ر</ComboBoxItem>
+                <ComboBoxItem>سپی</ComboBoxItem>
+                <ComboBoxItem>سور</ComboBoxItem>
+                <ComboBoxItem>شه‌فاف</ComboBoxItem>
+            </ComboBox>
+
+            <TextBox x:Name="txtDisc" materialDesign:HintAssist.Hint="تێبنیا بنڤیسه‌‌" MinLines="4" Width="500" Margin="15,5"/>
+
+            <CheckBox x:Name="isFavorate" Margin="15,5" >پێناسا هه‌لبژارتی</CheckBox>
+            <CheckBox x:Name="isHaveIMEI" Margin="15,5" >IMEI هه‌یه‌</CheckBox>
+
+            <Separator Margin="0,20,0,20" Background="#ddd"></Separator>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Width="100" Click="onSaveClick" Background="#1976D2" BorderBrush="#1976D2" FontWeight="Bold"  Margin="10,0">هه‌لگرتن</Button>
+                <Button Width="100" Click="onCloseClick" Background="#FF5252" BorderBrush="#FF5252" FontWeight="Bold" Margin="10,0">گرتن</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

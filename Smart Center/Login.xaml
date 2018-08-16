@@ -1,0 +1,57 @@
+﻿<Window x:Class="Smart_Center.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Smart_Center"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="#00000000"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="Login" Height="350" Width="500"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+         FlowDirection="RightToLeft"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Grid>
+        <Rectangle Fill="White"/>
+        <Image Source="pack://application:,,,/Asset/welcome.png" Margin="300,0,0,0" Stretch="UniformToFill"/>
+        <Button FontSize="18" FontWeight="ExtraBold"  Width="30" Height="30" Padding="0" Margin="5"  VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFF30707" BorderBrush="#FFE00707" Foreground="White" Click="onCloseClick" >
+            <materialDesign:PackIcon Kind="Close" FontWeight="ExtraBold"></materialDesign:PackIcon>
+        </Button>
+        <StackPanel Margin="20,30,200,0">
+                <Label  Content="چونه‌ژوور!" FontFamily="Tahoma" FontSize="18" Margin="20,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold"/>
+            <TextBlock FontFamily="Tahoma" Margin="0,10" FontSize="15" Foreground="#FF003B91" FontStyle="Normal" FontWeight="DemiBold" TextWrapping="Wrap" Text="به‌خێربێیت بو به‌رنامه‌ی سمارت سه‌نته‌ر بو كرین و فروتنا موبایلا ب كت و كوم!!!"/>
+            <StackPanel Orientation="Horizontal" Margin="0,15">
+                <materialDesign:PackIcon Kind="account" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtUsername" materialDesign:HintAssist.Hint="ناڤێ به‌كارهێنه‌ری بنڤیسه‌" Width="250" Margin="5" TextChanged="txtUsername_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10">
+                <materialDesign:PackIcon Kind="key" VerticalAlignment="Center"/>
+                <PasswordBox x:Name="txtPassword" materialDesign:HintAssist.Hint="ژمارا نهێنی بنڤیسه‌" Width="250" Margin="5"/>
+            </StackPanel>
+
+            <Button Margin="10,20,30,20" FontFamily="Tahoma" FontSize="18" FontWeight="ExtraBold" Height="40" Click="onLoginClick" >چونه‌ژوور!!</Button>
+
+        </StackPanel>
+        <StackPanel Margin="300,0,0,0" >
+
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#E545089E" Offset="1"/>
+                    <GradientStop Color="#E5CF7D44"/>
+                    <GradientStop Color="#E5B05420" Offset="0.503"/>
+                    <GradientStop Color="#E58F476D" Offset="0.747"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+        </StackPanel>
+        
+
+    </Grid>
+</Window>

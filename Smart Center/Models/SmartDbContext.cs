@@ -9,7 +9,11 @@ namespace Smart_Center.Models
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Company> Companies { get; set; }
+        public DbSet<Company> Companies { get; set; }  
+        public DbSet<Purchas> Purchas { set; get; }
+        public DbSet<PurchasDetail> PurchasDetail { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             System.Data.SqlClient.SqlConnectionStringBuilder connectionString = new System.Data.SqlClient.SqlConnectionStringBuilder() {
@@ -28,6 +32,8 @@ namespace Smart_Center.Models
 
             //for barcode UNIQE
             modelBuilder.Entity<Product>().HasIndex(u => u.Barcode).IsUnique(true);
+
+
 
         }
 

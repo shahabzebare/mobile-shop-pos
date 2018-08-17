@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Smart_Center.UserControls.Companies.ShowCompanyForSelectingUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Smart_Center.UserControls.Companies"
+            mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="550"
+             Background="White"
+             Foreground="Black"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+              FlowDirection="RightToLeft"
+        FontFamily="Tahoma"
+             Loaded="UserControl_Loaded"
+             >
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Margin="10" VerticalAlignment="Top" Width="530">
+            <Label FontSize="20" VerticalAlignment="Center" Foreground="#212121" Margin="10,5" FontWeight="ExtraBold">هه‌لبژارتنا كومپانیێ</Label>
+            <Separator Margin="0,0,0,30" Background="#757575"></Separator>
+        </StackPanel>
+
+        <StackPanel Margin="10,70,10,10" Width="530">
+            <TextBox Width="400" materialDesign:HintAssist.Hint="لێكه‌ریان‌" x:Name="txtSearch"></TextBox>
+
+            <DataGrid IsReadOnly="True" Height="300" CanUserResizeColumns="False" x:Name="CompanyVG" Margin="20,20,20,10" ColumnWidth="*"  CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"  materialDesign:DataGridAssist.CellPadding="13 8 8 8"  materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+
+            <DataGrid.Columns >
+
+                <DataGridTextColumn Width="100" Foreground="Black" Binding="{Binding Id}"
+                                        Header="#"
+                                        />
+
+
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding Name}"
+                                                               Header="ناڤ"
+                                                                                                                              />
+
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding Phone}"
+                                                               Header="ژمارا ته‌له‌فونێ"
+                                                               MaxLength="255" 
+                                                                />
+
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding Email}"
+                                                        Header="ئیمێل"
+                                                       >
+
+                </materialDesign:MaterialDataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+            <Separator Margin="0,5,0,0" Background="#ddd"></Separator>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Width="100" Click="onSaveClick" Background="#1976D2" BorderBrush="#1976D2" FontWeight="Bold"  Margin="10,0">دیاركرن</Button>
+                <Button Width="100" Click="onCloseClick" Background="#FF5252" BorderBrush="#FF5252" FontWeight="Bold" Margin="10,0">گرتن</Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

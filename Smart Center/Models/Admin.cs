@@ -24,6 +24,11 @@ namespace Smart_Center.Models
         public string Password { get; set; }
 
         public Type Type { get; set; }
+
+
+        [ForeignKey("adminId")]
+        public ICollection<Purchas> Purchases { get; set; }
+
     }
 
     public enum Type

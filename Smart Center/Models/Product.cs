@@ -10,15 +10,14 @@ namespace Smart_Center.Models
 {
     public class Product
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        
 
         [Required]
         public string Name { get; set; }
 
         public string Disc { get; set; }
 
-        [Required]
+        [Key]
         public string Barcode { get; set; }
 
         [Required]
@@ -44,5 +43,8 @@ namespace Smart_Center.Models
 
         [ForeignKey(nameof(categoryId))]
         public Category Category { get; set; }
+
+        [ForeignKey("Barcode")]
+        public ICollection<PurchasDetail> PurchasDetails { get; set; }
     }
 }

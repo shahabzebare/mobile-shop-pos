@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace Smart_Center.Models
 {
-    public class Company
+    public class IMEI
     {
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string ImEI { get; set; }
+
+        public bool inStock { get; set; } = true;
 
         [Required]
-        public string Phone { get; set; }
+        public int purchesDetailId { set; get; }
 
-        public string Email { get; set; }
-
-
-        [ForeignKey("companyId")]
-        public ICollection<Purchas> Purchases { get; set; }
+        [ForeignKey(nameof(purchesDetailId))]
+        public PurchasDetail PurchasDetail { get; set; }
 
     }
 }

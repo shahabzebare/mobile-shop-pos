@@ -178,7 +178,10 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\IMEI.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Purchas.cs" />
+    <Compile Include="Models\PurchasDetail.cs" />
     <Compile Include="Models\SmartDbContext.cs" />
     <Compile Include="UserControls\Admins\UserControlEditAdmin.xaml.cs">
       <DependentUpon>UserControlEditAdmin.xaml</DependentUpon>
@@ -192,6 +195,9 @@
     <Compile Include="UserControls\Categories\UserControlUpdateCat.xaml.cs">
       <DependentUpon>UserControlUpdateCat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Companies\ShowCompanyForSelectingUserControl.xaml.cs">
+      <DependentUpon>ShowCompanyForSelectingUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Companies\UserControlCreateCompany.xaml.cs">
       <DependentUpon>UserControlCreateCompany.xaml</DependentUpon>
     </Compile>
@@ -203,6 +209,9 @@
     </Compile>
     <Compile Include="UserControls\Product\UserControlUpdateProduct.xaml.cs">
       <DependentUpon>UserControlUpdateProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Purchases\AddPurchesUserControl.xaml.cs">
+      <DependentUpon>AddPurchesUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlAdmin.xaml.cs">
       <DependentUpon>UserControlAdmin.xaml</DependentUpon>
@@ -218,6 +227,9 @@
     </Compile>
     <Compile Include="UserControls\UserControlProduct.xaml.cs">
       <DependentUpon>UserControlProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlPurchas.xaml.cs">
+      <DependentUpon>UserControlPurchas.xaml</DependentUpon>
     </Compile>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
@@ -254,6 +266,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Companies\ShowCompanyForSelectingUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Companies\UserControlCreateCompany.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -267,6 +283,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Product\UserControlUpdateProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Purchases\AddPurchesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,6 +307,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UserControlProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserControlPurchas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

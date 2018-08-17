@@ -124,7 +124,14 @@
                     <ListViewItem x:Name="ItemCompany" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Bank" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="پێناسه‌" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="كومپانی‌" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ItemPurchas" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Sale" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="كرین‌" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
 

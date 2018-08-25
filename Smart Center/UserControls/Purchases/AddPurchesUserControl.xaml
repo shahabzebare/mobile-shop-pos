@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="540" d:DesignWidth="1010"
              Background="#fff"
+             
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
               FlowDirection="RightToLeft"
         FontFamily="Tahoma" Loaded="UserControl_Loaded"
@@ -77,50 +78,59 @@
         <StackPanel  Orientation="Horizontal" Width="990" Margin="0,-70,0,0" Height="60">
             <StackPanel Width="75">
                 <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">هه‌لبژێۆره‌</Label>
-                <Button Height="30" FontSize="18" VerticalContentAlignment="Center" Background="{DynamicResource PrimaryHueDarkBrush}">...</Button>
+                <Button Click="selectProduct" Height="30" FontSize="18" VerticalContentAlignment="Center" Background="{DynamicResource PrimaryHueDarkBrush}">...</Button>
+            </StackPanel>
+            <StackPanel Width="110">
+                <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">باركودێ پێناسێ</Label>
+                <TextBox  KeyDown="txtProductBarcode_KeyDown"  x:Name="txtProductBarcode"  Foreground="#000" TextAlignment="Center" Height="30"/>
             </StackPanel>
             <StackPanel Width="150">
-                <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">باركودێ پێناسێ</Label>
-                <TextBox Width="150"  Height="30"/>
-            </StackPanel>
-            <StackPanel Width="200">
                 <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">ناڤێ پێناسێ</Label>
-                <TextBox IsEnabled="False"   Height="30"/>
+                <TextBox IsEnabled="False" x:Name="txtProductName"  Foreground="#000" TextAlignment="Center"   Height="30"/>
             </StackPanel>
-            <StackPanel Width="110">
-                <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">بهایێ كرینێ</Label>
-                <TextBox  Width="110"  Height="30"/>
-            </StackPanel>
-            <StackPanel Width="110">
-                <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">بهایێ فروتنێ</Label>
-                <TextBox   Height="30"/>
-            </StackPanel>
-
             <StackPanel Width="100">
-                <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">ژماره‌</Label>
-                <TextBox  Width="100"  Height="30"/>
+                <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">بهایێ كرینێ</Label>
+                <TextBox TextChanged="onQteAndPriceChnage"  KeyUp="txtQte_KeyUp"  x:Name="txtProductByePrice" Text="0" Foreground="#000" TextAlignment="Center" Height="30"/>
+            </StackPanel>
+            <StackPanel Width="100">
+                <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">فروتنێ تاك</Label>
+                <TextBox x:Name="txtProductSalesPrice" TextChanged="onQteAndPriceChnage"  Height="30" Text="0" Foreground="#000" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Width="100">
+                <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">فروتنێ كو</Label>
+                <TextBox x:Name="txtProductSalesPriceMulti" TextChanged="onQteAndPriceChnage"  Height="30" Text="0" Foreground="#000" TextAlignment="Center"/>
             </StackPanel>
 
-            <StackPanel Width="75">
+            <StackPanel Width="90">
+                <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">ژماره‌</Label>
+                <TextBox  x:Name="txtQte" KeyDown="txtQte_KeyDown" Foreground="#000" TextAlignment="Center"  Text="0" Height="30" KeyUp="txtQte_KeyUp" TextChanged="onQteAndPriceChnage"/>
+            </StackPanel>
+
+            <StackPanel Width="75" Visibility="Hidden" x:Name="ImeiPanel">
                 <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">IMEI‌</Label>
-                <Button Height="30" FontSize="18" VerticalContentAlignment="Center" Background="{DynamicResource PrimaryHueDarkBrush}">
-                    <materialDesign:PackIcon  VerticalAlignment="Center" Kind="Plus" Height="25" Width="25" />
+                <Button Click="onInsertImei" Height="30" FontSize="18" VerticalContentAlignment="Center" Background="{DynamicResource PrimaryHueDarkBrush}">
+                    <materialDesign:PackIcon   VerticalAlignment="Center" Kind="OpenInNew" Height="25" Width="25" />
                 </Button>
             </StackPanel>
             
 
-            <StackPanel Width="150">
+            <StackPanel Width="120">
                 <Label Height="30" HorizontalContentAlignment="Center" FontWeight="Bold" Background="{DynamicResource PrimaryHueLightBrush}" BorderThickness="1">كوژم‌</Label>
-                <TextBox  IsEnabled="False"  Height="30"/>
+                <TextBox x:Name="txtAmount"  Text="0" Foreground="#000" TextAlignment="Center" IsEnabled="False"  Height="30"/>
             </StackPanel>
 
+            <StackPanel VerticalAlignment="Center" Width="60">
+                <Button Click="OnClickNewRow" VerticalAlignment="Center" Margin="5" Background="{DynamicResource SecondaryAccentBrush}">
+                    <materialDesign:PackIcon  HorizontalAlignment="Center"  VerticalAlignment="Center" Kind="Plus" Height="25" Width="25" />
+                </Button>
+            </StackPanel>
             
 
         </StackPanel>
 
 
         <StackPanel VerticalAlignment="Top" Width="990" Margin="0,270,0,0">
-            <DataGrid Height="200"  IsReadOnly="True" CanUserResizeColumns="False" x:Name="PurchesGV" ColumnWidth="*"  CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"  materialDesign:DataGridAssist.CellPadding="13 8 8 8"  materialDesign:DataGridAssist.ColumnHeaderPadding="3">
+            <DataGrid MouseDoubleClick="PurchesGV_MouseDoubleClick" Height="200"  IsReadOnly="True" CanUserResizeColumns="False" x:Name="PurchesGV" ColumnWidth="*"  CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"  materialDesign:DataGridAssist.CellPadding="13 8 8 8"  materialDesign:DataGridAssist.ColumnHeaderPadding="3">
 
                 <DataGrid.Columns >
 
@@ -137,7 +147,10 @@
                                                         Header="بهایێ كرینێ"
                                                        />
                     <materialDesign:MaterialDataGridTextColumn Binding="{Binding SalesPrice}"
-                                                        Header="بهایێ فروتنێ"
+                                                        Header=" بهایێ فروتنێ تاك"
+                                                       />
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding SalesPriceMuli}"
+                                                        Header="بهایێ فروتنێ كو"
                                                        />
                     <materialDesign:MaterialDataGridTextColumn Binding="{Binding Qte}"
                                                         Header="ژماره‌"
@@ -154,9 +167,29 @@
 
 
             <Separator Margin="0,0,0,0" Background="#ddd"></Separator>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Width="100" Click="onSaveClick" Background="#1976D2" BorderBrush="#1976D2" FontWeight="Bold"  Margin="10,10">هه‌لگرتن</Button>
-                <Button Width="100" Click="onCloseClick" Background="#FF5252" BorderBrush="#FF5252" FontWeight="Bold" Margin="10,10">گرتن</Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Width="500" Orientation="Horizontal" >
+                    <Button Width="100" Click="onSaveClick" Background="#1976D2" BorderBrush="#1976D2" FontWeight="Bold"  Margin="10,10">هه‌لگرتن</Button>
+                    <Button Width="100" Click="onCloseClick" Background="#FF5252" BorderBrush="#FF5252" FontWeight="Bold" Margin="10,10">گرتن</Button>
+                </StackPanel>
+                <StackPanel Margin="10,5" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <RadioButton x:Name="isPayNow" Click="changeDebatAndPay" IsChecked="True"  Margin="15,5" >دان</RadioButton>
+                    <RadioButton x:Name="isDebats" Click="changeDebatAndPay"  Margin="15,5" >ده‌ین</RadioButton>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Label>كوژمێ گشتی</Label>
+                    <TextBox x:Name="txtTotalAmoount" KeyUp="txtTotalAmoount_KeyUp"  Text="0"  Foreground="#000" TextAlignment="Center" FontSize="15" FontWeight="Bold" IsReadOnly="True"  />
+                </StackPanel>
+
+                <StackPanel Visibility="Hidden" x:Name="payPanel" HorizontalAlignment="Right" Margin="20,10,20,0">
+                    <Label>كوژمێ دایی</Label>
+                    <TextBox x:Name="txtPayAmount" KeyUp="txtTotalAmoount_KeyUp"  Text="0" Foreground="#000" TextAlignment="Center" FontSize="15" FontWeight="Bold"  />
+                </StackPanel>
+
+                <StackPanel Visibility="Hidden" x:Name="remPanel" HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Label>كوژمێ مایی</Label>
+                    <TextBox x:Name="txtRemAmount" Text="0"   Foreground="#000" TextAlignment="Center" FontSize="15" FontWeight="Bold" IsReadOnly="True"  />
+                </StackPanel>
             </StackPanel>
         </StackPanel>
 

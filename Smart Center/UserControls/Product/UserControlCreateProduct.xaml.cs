@@ -43,11 +43,14 @@ namespace Smart_Center.UserControls.Product
                 error += "باركود پێتڤیه‌\n";
             if (cmbCompany.SelectedIndex == -1)
                 error += "كومپانی پێتڤی \n";
-            if (txtSalesPrice.Text == "")
-                error += "بهایێ كرینێ پێتڤیه‌\n";
             if (txtByePrice.Text == "")
-                error += "بهایێ فروتنێ پێتڤیه‌\n";
-            if(cmbColor.SelectedIndex == -1)
+                error += "بهایێ كرینێ پێتڤیه‌\n";
+            if (txtSalesPrice.Text == "")
+                error += "بهایێ فروتنێ تاك پێتڤیه‌\n";
+
+            if (txtSalesPriceMulti.Text == "")
+                error += "بهایێ فروتنێ كو پێتڤیه‌\n";
+            if (cmbColor.SelectedIndex == -1)
                 error += "ره‌نگ پێتڤی \n";
 
 
@@ -63,6 +66,7 @@ namespace Smart_Center.UserControls.Product
                     Company = cmbCompany.Text,
                     bye_price = float.Parse(txtByePrice.Text.ToString()),
                     sales_price = float.Parse(txtSalesPrice.Text.ToString()),
+                    sales_price_multi = float.Parse(txtSalesPriceMulti.Text.ToString()),
                     Color = cmbColor.Text,
                     Disc = txtDisc.Text,
                     isFavorate = (bool)isFavorate.IsChecked,

@@ -25,5 +25,10 @@ namespace Smart_Center.Models
         [ForeignKey("companyId")]
         public ICollection<Purchas> Purchases { get; set; }
 
+        [ForeignKey("Company_id")]
+        public ICollection<DebtPay> DebtPays { get; set; }
+
+        [ForeignKey("Company_Id")]
+        public ICollection<Debt> Debts { get; set; }
     }
 }

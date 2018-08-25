@@ -178,6 +178,8 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Debt.cs" />
+    <Compile Include="Models\DebtPay.cs" />
     <Compile Include="Models\IMEI.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Purchas.cs" />
@@ -195,6 +197,12 @@
     <Compile Include="UserControls\Categories\UserControlUpdateCat.xaml.cs">
       <DependentUpon>UserControlUpdateCat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Companies\CompanyDebtsUserControl.xaml.cs">
+      <DependentUpon>CompanyDebtsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Companies\DebtPayUserControl.xaml.cs">
+      <DependentUpon>DebtPayUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Companies\ShowCompanyForSelectingUserControl.xaml.cs">
       <DependentUpon>ShowCompanyForSelectingUserControl.xaml</DependentUpon>
     </Compile>
@@ -204,14 +212,26 @@
     <Compile Include="UserControls\Companies\UserControlUpdateCompany.xaml.cs">
       <DependentUpon>UserControlUpdateCompany.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Product\ShowProductUserControl.xaml.cs">
+      <DependentUpon>ShowProductUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Product\UserControlCreateProduct.xaml.cs">
       <DependentUpon>UserControlCreateProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Product\UserControlUpdateProduct.xaml.cs">
       <DependentUpon>UserControlUpdateProduct.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Purchases\AddIMEIUserControl.xaml.cs">
+      <DependentUpon>AddIMEIUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Purchases\AddPurchesUserControl.xaml.cs">
       <DependentUpon>AddPurchesUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Purchases\ShowImeiUserControl.xaml.cs">
+      <DependentUpon>ShowImeiUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Purchases\ShowPurchesDetailsUserControl.xaml.cs">
+      <DependentUpon>ShowPurchesDetailsUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlAdmin.xaml.cs">
       <DependentUpon>UserControlAdmin.xaml</DependentUpon>
@@ -266,6 +286,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Companies\CompanyDebtsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Companies\DebtPayUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Companies\ShowCompanyForSelectingUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -278,6 +306,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Product\ShowProductUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Product\UserControlCreateProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -286,7 +318,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Purchases\AddIMEIUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Purchases\AddPurchesUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Purchases\ShowImeiUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Purchases\ShowPurchesDetailsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -351,7 +395,9 @@
   <ItemGroup>
     <Resource Include="Asset\iphone.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Helper\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

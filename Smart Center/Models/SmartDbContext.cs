@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 
 namespace Smart_Center.Models
 {
@@ -12,6 +13,9 @@ namespace Smart_Center.Models
         public DbSet<Company> Companies { get; set; }  
         public DbSet<Purchas> Purchas { set; get; }
         public DbSet<PurchasDetail> PurchasDetail { get; set; }
+        public DbSet<Debt> Debts { get; set; }
+        public DbSet<DebtPay> DebtPays { get; set; }
+        public DbSet<IMEI> iMEIs { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,7 +37,13 @@ namespace Smart_Center.Models
             //for barcode UNIQE
             modelBuilder.Entity<Product>().HasIndex(u => u.Barcode).IsUnique(true);
 
+            // PRIMARY KEY FOR DIBTS
+            modelBuilder.Entity<Debt>().HasKey(x => new { x.Company_Id,x.Purchas_Id});
 
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
 
         }
 

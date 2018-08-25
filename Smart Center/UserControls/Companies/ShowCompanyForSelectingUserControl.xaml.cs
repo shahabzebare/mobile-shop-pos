@@ -62,5 +62,11 @@ namespace Smart_Center.UserControls.Companies
         {
             parent.SelectCompanyDilog.IsOpen = false;
         }
+
+        private void onSearchCompany(object sender, TextChangedEventArgs e)
+        {
+            companies = smartDb.Companies.Where(x=>x.Name.Contains(txtSearch.Text)).ToList();
+            CompanyVG.ItemsSource = companies;
+        }
     }
 }

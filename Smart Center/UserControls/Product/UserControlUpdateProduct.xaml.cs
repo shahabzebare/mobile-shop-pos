@@ -45,10 +45,13 @@ namespace Smart_Center.UserControls.Product
                 error += "باركود پێتڤیه‌\n";
             if (cmbCompany.SelectedIndex == -1)
                 error += "كومپانی پێتڤی \n";
-            if (txtSalesPrice.Text == "")
-                error += "بهایێ كرینێ پێتڤیه‌\n";
             if (txtByePrice.Text == "")
-                error += "بهایێ فروتنێ پێتڤیه‌\n";
+                error += "بهایێ كرینێ پێتڤیه‌\n";
+            if (txtSalesPrice.Text == "")
+                error += "بهایێ فروتنێ تاك پێتڤیه‌\n";
+
+            if (txtSalesPriceMulti.Text == "")
+                error += "بهایێ فروتنێ كو پێتڤیه‌\n";
             if (cmbColor.SelectedIndex == -1)
                 error += "ره‌نگ پێتڤی \n";
 
@@ -62,10 +65,10 @@ namespace Smart_Center.UserControls.Product
                 product.Company = cmbCompany.Text;
                 product.bye_price = float.Parse(txtByePrice.Text.ToString());
                 product.sales_price = float.Parse(txtSalesPrice.Text.ToString());
+                product.sales_price_multi = float.Parse(txtSalesPriceMulti.Text.ToString());
                 product.Color = cmbColor.Text;
                 product.Disc = txtDisc.Text;
                 product.isFavorate = (bool)isFavorate.IsChecked;
-                product.isHaveIMEI = (bool)isHaveIMEI.IsChecked;
                 
 
                 db.Products.Update(product);
@@ -109,11 +112,11 @@ namespace Smart_Center.UserControls.Product
             txtBarcode.Text = product.Barcode;
             txtByePrice.Text = product.bye_price.ToString();
             txtSalesPrice.Text = product.sales_price.ToString();
+            txtSalesPriceMulti.Text = product.sales_price_multi.ToString();
             txtDisc.Text = product.Disc;
             cmbColor.Text = product.Color;
             cmbCompany.Text = product.Company;
             isFavorate.IsChecked = product.isFavorate;
-            isHaveIMEI.IsChecked = product.isHaveIMEI;
 
         }
 
@@ -128,7 +131,6 @@ namespace Smart_Center.UserControls.Product
             cmbColor.SelectedIndex = -1;
             cmbCompany.SelectedIndex = -1;
             isFavorate.IsChecked = false;
-            isHaveIMEI.IsChecked = false;
         }
        
 

@@ -44,6 +44,9 @@ namespace Smart_Center.Models
         public float SalesPrice { get; set; }
 
         [Required]
+        public float SalesPriceMuli { get; set; }
+
+        [Required]
         public float TotalAmount { get; set; }
 
         [ForeignKey("purchesDetailId")]

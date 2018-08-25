@@ -10,15 +10,20 @@
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
               FlowDirection="RightToLeft"
         FontFamily="Tahoma" Loaded="UserControl_Loaded">
-
+  
     <UserControl.Resources>
+       
         <ResourceDictionary>
+            <local:CalcPurchesTotal x:Key="CalcPurchesTotal" />
+            <local:CalcPurchesPay x:Key="CalcPurchesPay" />
+            <local:CalcPurchesRem x:Key="CalcPurchesRem" />
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-
+   
     <Grid>
 
         <StackPanel Margin="10" Width="990" VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -28,9 +33,14 @@
             </StackPanel>
             <Separator Background="#757575"/>
 
+            <StackPanel  Margin="60,0" Orientation="Horizontal">
+                
+                <DatePicker Foreground="Black"  Name="dtStart" Width="290" materialDesign:HintAssist.Hint="به‌روارێ ده‌سپێكێ" Margin="15,10" FlowDirection="RightToLeft" />
+                <DatePicker Foreground="Black" Name="dtEnd" Width="290" materialDesign:HintAssist.Hint="به‌روارێ دوماهیكێ" Margin="15,10" FlowDirection="RightToLeft" />
+                <Button Background="#000000" Click="Button_Click" BorderBrush="#000000" Margin="15,0" Width="200">هه‌لبژارتن</Button>
+            </StackPanel>
 
-
-            <DataGrid IsReadOnly="True" CanUserResizeColumns="False" x:Name="AdminGV" Margin="20" ColumnWidth="*"  CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"  materialDesign:DataGridAssist.CellPadding="13 8 8 8"  materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+            <DataGrid IsReadOnly="True" Height="400" CanUserResizeColumns="False" x:Name="AdminGV" Margin="20" ColumnWidth="*"  CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"  materialDesign:DataGridAssist.CellPadding="13 8 8 8"  materialDesign:DataGridAssist.ColumnHeaderPadding="8">
 
                 <DataGrid.Columns >
 
@@ -39,17 +49,26 @@
                                         />
 
 
-                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Name}"
-                                                               Header="ناڤ"
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Number}"
+                                                               Header="ژمارا كرینێ"
                                                                                                                               />
 
-                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Username}"
-                                                               Header="ناڤێ به‌كارهێنه‌ر"
-                                                               MaxLength="255" 
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Disc}"
+                                                               Header="تێبنی"
                                                                 />
 
-                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Type}"
-                                                        Header="جوری به‌رێوه‌به‌ر"
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding purchasDetails,Converter={StaticResource CalcPurchesTotal} }"
+                                                               Header="كوژم"
+                                                                />
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Converter={StaticResource CalcPurchesPay} }"
+                                                               Header="پارێ دایی"
+                                                                />
+
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Converter={StaticResource CalcPurchesRem} }"
+                                                               Header="پارێ مایی"
+                                                                />
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Path=Company.Name}"
+                                                        Header="كومپانی"
                                                        >
                         <DataGridTextColumn.HeaderStyle>
                             <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
@@ -63,15 +82,16 @@
                         </DataGridTextColumn.ElementStyle>
                     </materialDesign:MaterialDataGridTextColumn>
 
-                    <DataGridTemplateColumn Header="كرداره‌كان">
+                    <DataGridTemplateColumn  Header="كرداره‌كان">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel  Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
                                     <Button Click="onDeleteClick" Foreground="#ffffff" BorderBrush="#D32F2F" Background="#D32F2F" Margin="5,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
                                         <materialDesign:PackIcon Kind="Delete"></materialDesign:PackIcon>
                                     </Button>
-                                    <Button Click="onUpdateClick" Foreground="#ffffff" BorderBrush="#448AFF" Background="#448AFF" Margin="5,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
-                                        <materialDesign:PackIcon Kind="Pencil"></materialDesign:PackIcon>
+
+                                    <Button Click="onShowClick" Foreground="#ffffff" BorderBrush="{DynamicResource SecondaryAccentBrush}" Background="{ DynamicResource SecondaryAccentBrush }" Margin="5,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                        <materialDesign:PackIcon Kind="More"></materialDesign:PackIcon>
                                     </Button>
                                 </StackPanel>
                             </DataTemplate>

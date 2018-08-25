@@ -15,7 +15,7 @@
     <Grid>
         <StackPanel Margin="10" Width="530" Height="550">
             <Label FontSize="20" VerticalAlignment="Center" Foreground="#212121" Margin="10,5" FontWeight="ExtraBold">زێده‌كرنا پێناسه‌كا نوی</Label>
-            <Separator Margin="0,0,0,30" Background="#757575"></Separator>
+            <Separator Margin="0,0,0,15" Background="#757575"></Separator>
 
             <TextBox x:Name="txtName" materialDesign:HintAssist.Hint="ناڤی پێناسێ بنڤیسه‌" Width="500" Margin="15,5"/>
 
@@ -35,7 +35,9 @@
 
             <TextBox x:Name="txtByePrice" TextChanged="onlyNumber"  materialDesign:HintAssist.Hint="بهایێ كرینێ بنڤیسه‌" Width="500" Margin="15,5"/>
 
-            <TextBox x:Name="txtSalesPrice" TextChanged="onlyNumber" materialDesign:HintAssist.Hint="بهایێ فروتنێ بنڤیسه‌" Width="500" Margin="15,5"/>
+            <TextBox x:Name="txtSalesPrice" TextChanged="onlyNumber" materialDesign:HintAssist.Hint="بهایێ فروتنێ تاك بنڤیسه‌" Width="500" Margin="15,5"/>
+            
+            <TextBox x:Name="txtSalesPriceMulti" TextChanged="onlyNumber" materialDesign:HintAssist.Hint="بهایێ فروتنێ كو بنڤیسه‌" Width="500" Margin="15,5"/>
 
 
             <ComboBox x:Name="cmbColor" materialDesign:HintAssist.Hint="ره‌نگ"  Width="500" Margin="15,5">
@@ -51,7 +53,7 @@
             <CheckBox x:Name="isFavorate" Margin="15,5" >پێناسا هه‌لبژارتی</CheckBox>
             <CheckBox x:Name="isHaveIMEI" Margin="15,5" >IMEI هه‌یه‌</CheckBox>
 
-            <Separator Margin="0,20,0,20" Background="#ddd"></Separator>
+            <Separator Margin="0,20,0,10" Background="#ddd"></Separator>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Width="100" Click="onSaveClick" Background="#1976D2" BorderBrush="#1976D2" FontWeight="Bold"  Margin="10,0">هه‌لگرتن</Button>
                 <Button Width="100" Click="onCloseClick" Background="#FF5252" BorderBrush="#FF5252" FontWeight="Bold" Margin="10,0">گرتن</Button>

@@ -22,6 +22,7 @@ namespace Smart_Center.UserControls
     /// </summary>
     public partial class UserControlCompany : UserControl
     {
+        public MainWindow MainWindow = null;
         UserControls.Companies.UserControlUpdateCompany up = null;
         List<Company> companies = null;
         SmartDbContext smartDb;
@@ -73,6 +74,15 @@ namespace Smart_Center.UserControls
         {
             companies = smartDb.Companies.ToList();
             CompanyVG.ItemsSource = companies;
+        }
+
+        private void onShowDebtClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow.GridMain.Children.Clear();
+            Companies.CompanyDebtsUserControl x = new Companies.CompanyDebtsUserControl();
+            x.MainWindow = this.MainWindow;
+            x.company = (CompanyVG.SelectedItem as Company);
+            MainWindow.GridMain.Children.Add(x);
         }
     }
 }

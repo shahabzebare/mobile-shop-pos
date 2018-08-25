@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BespokeFusion;
+using System.Globalization;
 
 namespace Smart_Center.UserControls
 {
@@ -71,8 +72,30 @@ namespace Smart_Center.UserControls
 
         public void loadData()
         {
-            Products = smartDb.Products.Include(x=>x.Category).ToList();
+            Products = smartDb.Products.Include(x=>x.Category).Include(x=>x.PurchasDetails).ToList();
             ProductVG.ItemsSource = Products;
+        }
+    }
+
+    public class CalcCountProduct : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+
+            if (value == null)
+            {
+                return 0;
+            }
+            else
+            {
+                Models.Product x = (Models.Product)value;
+                return x.PurchasDetails.Sum(j=>j.QteCh);
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }

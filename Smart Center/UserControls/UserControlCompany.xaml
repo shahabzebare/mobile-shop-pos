@@ -63,10 +63,13 @@
                         </DataGridTextColumn.ElementStyle>
                     </materialDesign:MaterialDataGridTextColumn>
 
-                    <DataGridTemplateColumn Header="كرداره‌كان">
+                    <DataGridTemplateColumn Width="180" Header="كرداره‌كان">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel  Orientation="Horizontal">
+                                    <Button Click="onShowDebtClick" Foreground="#ffffff" BorderBrush="#f19a30" Background="#f19a30" Margin="5,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                        <materialDesign:PackIcon Kind="More"></materialDesign:PackIcon>
+                                    </Button>
                                     <Button Click="onDeleteClick" Foreground="#ffffff" BorderBrush="#D32F2F" Background="#D32F2F" Margin="5,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
                                         <materialDesign:PackIcon Kind="Delete"></materialDesign:PackIcon>
                                     </Button>

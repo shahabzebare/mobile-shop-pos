@@ -37,6 +37,7 @@ namespace Smart_Center
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
+                
                 case "ItemHome":
                     usc = new UserControlHome();
                     GridMain.Children.Add(usc);
@@ -55,7 +56,9 @@ namespace Smart_Center
                     break;
                 case "ItemCompany":
                     usc = new UserControlCompany();
-                    GridMain.Children.Add(usc);
+                    UserControlCompany uc = (UserControlCompany)usc;
+                    uc.MainWindow = this;
+                    GridMain.Children.Add(uc);
                     break;
                 case "ItemPurchas":
                     usc = new UserControlPurchas();

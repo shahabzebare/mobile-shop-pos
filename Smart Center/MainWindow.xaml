@@ -135,6 +135,13 @@
                         </StackPanel>
                     </ListViewItem>
 
+                    <ListViewItem x:Name="ItemOrder" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Cart" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="فروتن‌" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+
                 </ListView>
             </StackPanel>
         </Grid>

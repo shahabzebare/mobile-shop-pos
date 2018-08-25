@@ -21,12 +21,12 @@
             <TextBox x:Name="txtPhone" materialDesign:HintAssist.Hint="ژمارا ته‌له‌فونێ بنڤیسه‌" Width="500" Margin="15"/>
 
             <TextBox x:Name="txtEmail" materialDesign:HintAssist.Hint="ئیمێلی بنڤیسه‌ بنڤیسه‌" Width="500" Margin="15"/>
-
-            <Separator Margin="0,30,0,30" Background="#ddd"></Separator>
+ <Separator Margin="0,30,0,30" Background="#ddd"></Separator>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Width="100" Click="onSaveClick" Background="#1976D2" BorderBrush="#1976D2" FontWeight="Bold"  Margin="10,0">هه‌لگرتن</Button>
                 <Button Width="100" Click="onCloseClick" Background="#FF5252" BorderBrush="#FF5252" FontWeight="Bold" Margin="10,0">گرتن</Button>
             </StackPanel>
+           
         </StackPanel>
     </Grid>
 </UserControl>

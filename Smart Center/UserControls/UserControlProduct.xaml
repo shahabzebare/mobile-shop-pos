@@ -14,6 +14,7 @@
 
     <UserControl.Resources>
         <ResourceDictionary>
+            <local:CalcCountProduct x:Key="CalcCountProduct" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -34,9 +35,9 @@
 
                 <DataGrid.Columns >
 
-                    <DataGridTextColumn Binding="{Binding Id}"
-                                        Header="#"
-                                        />
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Barcode}"
+                                                               Header="باركود"
+                                                                />
 
 
                     <materialDesign:MaterialDataGridTextColumn Binding="{Binding Name}"
@@ -46,10 +47,7 @@
                 Header="به‌ش"/>
                    
 
-                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Barcode}"
-                                                               Header="باركود"
-                                                               MaxLength="255" 
-                                                                />
+                  
 
                     <materialDesign:MaterialDataGridTextColumn Binding="{Binding bye_price}"
                                                         Header="بهایێ كرینێ"
@@ -58,7 +56,19 @@
                     </materialDesign:MaterialDataGridTextColumn>
 
                     <materialDesign:MaterialDataGridTextColumn Binding="{Binding sales_price}"
-                                                        Header="بهایێ فروتنێ"
+                                                        Header=" بهایێ فروتنێ تاك "
+                                                       >
+
+                    </materialDesign:MaterialDataGridTextColumn>
+
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding sales_price_multi}"
+                                                        Header=" بهایێ فروتنێ كو‌‌ "
+                                                       >
+
+                    </materialDesign:MaterialDataGridTextColumn>
+
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Converter={StaticResource CalcCountProduct} }"
+                                                        Header="ژماره‌ "
                                                        >
 
                     </materialDesign:MaterialDataGridTextColumn>

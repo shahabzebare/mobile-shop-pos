@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Smart_Center.UserControls.Companies.DebtPayUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Smart_Center.UserControls.Companies"
+            mc:Ignorable="d" 
+             d:DesignHeight="360" d:DesignWidth="550"
+             Background="White"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+              FlowDirection="RightToLeft"
+        FontFamily="Tahoma"
+             >
+    <Grid>
+        <StackPanel Margin="10" Width="530" Height="350">
+            <Label FontSize="20" VerticalAlignment="Center" Foreground="#212121" Margin="10,5" FontWeight="ExtraBold">دانا ده‌ینی</Label>
+            <Separator Margin="0,0,0,10" Background="#757575"></Separator>
+            <StackPanel Margin="10">
+                <Label>كوژمێ ده‌ینی</Label>
+                <TextBox x:Name="txtDebts" IsReadOnly="True"  Text="0" materialDesign:HintAssist.Hint="كوژمێ ده‌ینی" Width="500" />
+            </StackPanel>
+            
+            <StackPanel Margin="10">
+                <Label>كوژمێ دایی</Label>
+                <TextBox x:Name="txtPay" KeyUp="txtPay_KeyUp" TextChanged="txtPay_TextChanged" Text="0" materialDesign:HintAssist.Hint="كوژمێ دایی" Width="500" />
+            </StackPanel>
+
+            <StackPanel Margin="10">
+                <Label>كوژمێ مایی</Label>
+                <TextBox x:Name="txtRem" IsReadOnly="True" Text="0" materialDesign:HintAssist.Hint="كوژمێ دایی" Width="500" />
+            </StackPanel>
+
+            <Separator Margin="0,15,0,15" Background="#ddd"></Separator>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Width="100" Click="onSaveClick" Background="#1976D2" BorderBrush="#1976D2" FontWeight="Bold"  Margin="10,0">هه‌لگرتن</Button>
+                <Button Width="100" Click="onCloseClick" Background="#FF5252" BorderBrush="#FF5252" FontWeight="Bold" Margin="10,0">گرتن</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

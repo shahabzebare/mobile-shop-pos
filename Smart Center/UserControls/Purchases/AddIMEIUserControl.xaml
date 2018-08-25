@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Smart_Center.UserControls.Purchases.AddIMEIUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Smart_Center.UserControls.Purchases"
+              mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="550"
+             Background="White"
+             Foreground="Black"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+              FlowDirection="RightToLeft"
+        FontFamily="Tahoma"
+             Loaded="UserControl_Loaded"
+             >
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Margin="10" VerticalAlignment="Top" Width="530">
+            <Label FontSize="20" VerticalAlignment="Center" Foreground="#212121" Margin="10,5" FontWeight="ExtraBold">زێده‌كرنا IMEI</Label>
+            <Separator Margin="0,0,0,30" Background="#757575"></Separator>
+        </StackPanel>
+
+        <StackPanel Margin="10,70,10,10" Width="530">
+            <TextBox Width="400" KeyDown="onAddIMEI" materialDesign:HintAssist.Hint="‌IMEI‌" x:Name="txtIMEI"></TextBox>
+
+            <DataGrid MouseDoubleClick="CompanyVG_MouseDoubleClick" IsReadOnly="True" Height="300" CanUserResizeColumns="False" x:Name="CompanyVG" Margin="20,20,20,10" ColumnWidth="*"  CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"  materialDesign:DataGridAssist.CellPadding="13 8 8 8"  materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+
+                <DataGrid.Columns >
+
+                   
+
+
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding ImEI}"
+                                                               Header="ناڤ"
+                                                                                                                              />
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Separator Margin="0,5,0,0" Background="#ddd"></Separator>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Width="100" Click="onSaveClick" Background="#1976D2" BorderBrush="#1976D2" FontWeight="Bold"  Margin="10">هه‌لگرتن</Button>
+                <Button Width="100" Click="onCloseClick" Background="#FF5252" BorderBrush="#FF5252" FontWeight="Bold" Margin="10">گرتن</Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

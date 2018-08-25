@@ -10,15 +10,15 @@ namespace Smart_Center.Models
 {
     public class Product
     {
-        
+        [Key]
+        public string Barcode { get; set; }
 
         [Required]
         public string Name { get; set; }
 
         public string Disc { get; set; }
 
-        [Key]
-        public string Barcode { get; set; }
+        
 
         [Required]
         public string Company { get; set; }
@@ -31,6 +31,11 @@ namespace Smart_Center.Models
 
         [Required]
         public float sales_price { get; set; }
+
+        [Required]
+        public float sales_price_multi { get; set; }
+
+
 
         [Required]
         public string Color { get; set; }

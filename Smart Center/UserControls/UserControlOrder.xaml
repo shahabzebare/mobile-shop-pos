@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="Smart_Center.UserControls.UserControlOrder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Smart_Center.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="1010"
+             Background="#fff"
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+              FlowDirection="RightToLeft"
+        FontFamily="Tahoma" Loaded="UserControl_Loaded">
+
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <local:CalcOrderTotal x:Key="CalcOrderTotal" />
+            <local:CalcOrdersPay x:Key="CalcOrdersPay" />
+            <local:CalcOrdersRem x:Key="CalcOrdersRem" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+
+        <StackPanel Margin="10" Width="990" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal">
+                <Label FontSize="24" VerticalAlignment="Center" Foreground="#212121" Margin="10,5" FontWeight="ExtraBold">فروتن</Label>
+                <Label FontSize="16" Foreground="#757575" VerticalAlignment="Center" FontWeight="Normal">رێڤه‌برنا فروتنێ</Label>
+            </StackPanel>
+            <Separator Background="#757575"/>
+
+            <StackPanel  Margin="60,0" Orientation="Horizontal">
+
+                <DatePicker Foreground="Black"  Name="dtStart" Width="290" materialDesign:HintAssist.Hint="به‌روارێ ده‌سپێكێ" Margin="15,10" FlowDirection="RightToLeft" />
+                <DatePicker Foreground="Black" Name="dtEnd" Width="290" materialDesign:HintAssist.Hint="به‌روارێ دوماهیكێ" Margin="15,10" FlowDirection="RightToLeft" />
+                <Button Background="#000000" Click="Button_Click" BorderBrush="#000000" Margin="15,0" Width="200">هه‌لبژارتن</Button>
+            </StackPanel>
+
+            <DataGrid IsReadOnly="True" Height="400" CanUserResizeColumns="False" x:Name="OrderGV" Margin="20" ColumnWidth="*"  CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"  materialDesign:DataGridAssist.CellPadding="13 8 8 8"  materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+
+                <DataGrid.Columns >
+
+                    <DataGridTextColumn Binding="{Binding Id}"
+                                        Header="#"
+                                        />
+
+
+                   
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Disc}"
+                                                               Header="تێبنی"
+                                                                />
+
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding OrderDetails,Converter={StaticResource CalcOrderTotal} }"
+                                                               Header="كوژم"
+                                                                />
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Converter={StaticResource CalcOrdersPay} }"
+                                                               Header="پارێ دایی"
+                                                                />
+
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding  Converter={StaticResource CalcOrdersRem} }"
+                                                               Header="پارێ مایی"
+                                                                />
+                    <materialDesign:MaterialDataGridTextColumn Binding="{Binding Path=Customer.Name}"
+                                                        Header="كریار"
+                                                       >
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="HorizontalAlignment" Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </materialDesign:MaterialDataGridTextColumn>
+
+                    <DataGridTemplateColumn Width="200"  Header="كرداره‌كان">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Click="onDeleteClick" Foreground="#ffffff" BorderBrush="#D32F2F" Background="#D32F2F" Margin="5,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                        <materialDesign:PackIcon Kind="Delete"></materialDesign:PackIcon>
+                                    </Button>
+
+                                    <Button Click="onShowClick" Foreground="#ffffff" BorderBrush="{DynamicResource SecondaryAccentBrush}" Background="{ DynamicResource SecondaryAccentBrush }" Margin="5,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                        <materialDesign:PackIcon Kind="More"></materialDesign:PackIcon>
+                                    </Button>
+
+                                    <Button Click="onPrint" Foreground="#ffffff" BorderBrush="{DynamicResource SecondaryAccentBrush}" Background="{ DynamicResource SecondaryAccentBrush }" Margin="5,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                        <materialDesign:PackIcon Kind="Printer"></materialDesign:PackIcon>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
+
+
+        </StackPanel>
+
+        <Button Click="onCreateClick" Foreground="White" Margin="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                            ToolTip="زێده‌كرن">
+            <materialDesign:PackIcon Kind="Plus" Height="24" Width="24" />
+        </Button>
+
+    </Grid>
+</UserControl>

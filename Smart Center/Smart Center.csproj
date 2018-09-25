@@ -44,6 +44,10 @@
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -56,6 +60,7 @@
     <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
@@ -138,6 +143,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Interactive.Async, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll</HintPath>
     </Reference>
@@ -152,7 +158,12 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -166,25 +177,81 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConfigWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigWindow.Designer.cs">
+      <DependentUpon>ConfigWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Debt.cs" />
     <Compile Include="Models\DebtPay.cs" />
     <Compile Include="Models\IMEI.cs" />
+    <Compile Include="Models\MyDebt.cs" />
+    <Compile Include="Models\MyDebtPay.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Premiums.cs" />
+    <Compile Include="Models\PremiumsDetail.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Purchas.cs" />
     <Compile Include="Models\PurchasDetail.cs" />
     <Compile Include="Models\SmartDbContext.cs" />
+    <Compile Include="Models\Work.cs" />
+    <Compile Include="Password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Password.Designer.cs">
+      <DependentUpon>Password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrystalReportOrder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportOrder.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\DataSetOrder.cs">
+      <DependentUpon>DataSetOrder.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DataSetOrder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetOrder.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DataSetProducts.cs">
+      <DependentUpon>DataSetProducts.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DataSetProducts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProducts.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportProduct.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportProduct.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserControls\Admins\UserControlEditAdmin.xaml.cs">
       <DependentUpon>UserControlEditAdmin.xaml</DependentUpon>
     </Compile>
@@ -211,6 +278,39 @@
     </Compile>
     <Compile Include="UserControls\Companies\UserControlUpdateCompany.xaml.cs">
       <DependentUpon>UserControlUpdateCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Cutomers\CreateCutomerUserControl.xaml.cs">
+      <DependentUpon>CreateCutomerUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Cutomers\CustomerDebtsUserControl.xaml.cs">
+      <DependentUpon>CustomerDebtsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Cutomers\CustomerForSelectingUserControl.xaml.cs">
+      <DependentUpon>CustomerForSelectingUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Cutomers\DebtPayUserControl.xaml.cs">
+      <DependentUpon>DebtPayUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Cutomers\UpdateCustomerUserControl.xaml.cs">
+      <DependentUpon>UpdateCustomerUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Orders\AddOrderUserControl.xaml.cs">
+      <DependentUpon>AddOrderUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Orders\ShowOrderDeatailUserControl.xaml.cs">
+      <DependentUpon>ShowOrderDeatailUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Premium\AddPremiumUserControl.xaml.cs">
+      <DependentUpon>AddPremiumUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Premium\PayQstUserControl.xaml.cs">
+      <DependentUpon>PayQstUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Premium\ShowPreUserControl.xaml.cs">
+      <DependentUpon>ShowPreUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Product\ShowProductSelectOrderUserControl.xaml.cs">
+      <DependentUpon>ShowProductSelectOrderUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Product\ShowProductUserControl.xaml.cs">
       <DependentUpon>ShowProductUserControl.xaml</DependentUpon>
@@ -242,8 +342,17 @@
     <Compile Include="UserControls\UserControlCompany.xaml.cs">
       <DependentUpon>UserControlCompany.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlCustomer.xaml.cs">
+      <DependentUpon>UserControlCustomer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UserControlHome.xaml.cs">
       <DependentUpon>UserControlHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlOrder.xaml.cs">
+      <DependentUpon>UserControlOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserControlPremium.xaml.cs">
+      <DependentUpon>UserControlPremium.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UserControlProduct.xaml.cs">
       <DependentUpon>UserControlProduct.xaml</DependentUpon>
@@ -306,6 +415,50 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\Cutomers\CreateCutomerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Cutomers\CustomerDebtsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Cutomers\CustomerForSelectingUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Cutomers\DebtPayUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Cutomers\UpdateCustomerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Orders\AddOrderUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Orders\ShowOrderDeatailUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Premium\AddPremiumUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Premium\PayQstUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Premium\ShowPreUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Product\ShowProductSelectOrderUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Product\ShowProductUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -346,7 +499,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UserControlCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\UserControlHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserControlOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserControlPremium.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -373,9 +538,26 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="ConfigWindow.resx">
+      <DependentUpon>ConfigWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Password.resx">
+      <DependentUpon>Password.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrystalReportOrder.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportOrder.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\ReportProduct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportProduct.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -383,6 +565,28 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Report\DataSetOrder.xsc">
+      <DependentUpon>DataSetOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DataSetOrder.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetOrder.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\DataSetOrder.xss">
+      <DependentUpon>DataSetOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DataSetProducts.xsc">
+      <DependentUpon>DataSetProducts.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DataSetProducts.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProducts.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\DataSetProducts.xss">
+      <DependentUpon>DataSetProducts.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -397,6 +601,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

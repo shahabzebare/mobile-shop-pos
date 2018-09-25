@@ -75,6 +75,29 @@ namespace Smart_Center.UserControls
             Products = smartDb.Products.Include(x=>x.Category).Include(x=>x.PurchasDetails).ToList();
             ProductVG.ItemsSource = Products;
         }
+
+        private void OnPrint(object sender, RoutedEventArgs e)
+        {
+
+            Report.Report rwindow = new Report.Report();
+
+            Report.ReportProduct reportProduct = new Report.ReportProduct();
+
+            reportProduct.SetDataSource(smartDb.Products.Select(p=>new
+            {
+                Barcode=p.Barcode,
+                Name=p.Name,
+                ByePrice = p.bye_price,
+                SalesPriceSingle=p.sales_price,
+                SalesPriceMulti = p.sales_price_multi,
+                Category = p.Category.Name,
+                QteRem = p.PurchasDetails.Sum(x=>x.QteCh)
+
+            }).ToList());
+
+            rwindow.crystalReportViewer1.ReportSource = reportProduct;
+            rwindow.Show();
+        }
     }
 
     public class CalcCountProduct : IValueConverter

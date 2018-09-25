@@ -62,5 +62,19 @@ namespace Smart_Center
         {
 
         }
+
+        private void onLoad(object sender, RoutedEventArgs e)
+        { }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.LeftCtrl)
+            {
+                Password password = new Password();
+                 password.Show();
+            }
+        }
+       
+    
     }
 }

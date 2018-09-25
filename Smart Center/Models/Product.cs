@@ -18,8 +18,6 @@ namespace Smart_Center.Models
 
         public string Disc { get; set; }
 
-        
-
         [Required]
         public string Company { get; set; }
 
@@ -51,5 +49,8 @@ namespace Smart_Center.Models
 
         [ForeignKey("Barcode")]
         public ICollection<PurchasDetail> PurchasDetails { get; set; }
+
+        [ForeignKey("Barcode")]
+        public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -15,6 +15,7 @@
         mc:Ignorable="d"
         Title="Login" Height="350" Width="500"
         WindowStyle="None"
+        Loaded="onLoad"
         ResizeMode="NoResize"
          FlowDirection="RightToLeft"
         WindowStartupLocation="CenterScreen"
@@ -30,7 +31,7 @@
             <TextBlock FontFamily="Tahoma" Margin="0,10" FontSize="15" Foreground="#FF003B91" FontStyle="Normal" FontWeight="DemiBold" TextWrapping="Wrap" Text="به‌خێربێیت بو به‌رنامه‌ی سمارت سه‌نته‌ر بو كرین و فروتنا موبایلا ب كت و كوم!!!"/>
             <StackPanel Orientation="Horizontal" Margin="0,15">
                 <materialDesign:PackIcon Kind="account" VerticalAlignment="Center"/>
-                <TextBox x:Name="txtUsername" materialDesign:HintAssist.Hint="ناڤێ به‌كارهێنه‌ری بنڤیسه‌" Width="250" Margin="5" TextChanged="txtUsername_TextChanged"/>
+                <TextBox KeyDown="txtUsername_KeyDown" x:Name="txtUsername" materialDesign:HintAssist.Hint="ناڤێ به‌كارهێنه‌ری بنڤیسه‌" Width="250" Margin="5" TextChanged="txtUsername_TextChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10">
                 <materialDesign:PackIcon Kind="key" VerticalAlignment="Center"/>

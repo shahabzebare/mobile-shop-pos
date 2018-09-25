@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace Smart_Center.Models
 {
-    public class PurchasDetail
+    public class OrderDetail
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
 
         [Required]
         public string Barcode { set; get; }
@@ -22,22 +21,14 @@ namespace Smart_Center.Models
 
 
         [Required]
-        public int purchasId { set; get; }
+        public int OrderId { set; get; }
 
-        [ForeignKey(nameof(purchasId))]
-        public Purchas Purchas { get; set; }
-
+        [ForeignKey(nameof(OrderId))]
+        public Order Order { get; set; }
 
         //static qte
         [Required]
         public int Qte { get; set; }
-
-        //changed Qte
-        [Required]
-        public int QteCh { get; set; }
-
-        [ForeignKey("PurchesDetailId")]
-        public OrderDetail OrderDetail { get; set; }
 
         [Required]
         public float ByePrice { get; set; }
@@ -46,13 +37,31 @@ namespace Smart_Center.Models
         public float SalesPrice { get; set; }
 
         [Required]
-        public float SalesPriceMuli { get; set; }
+        public float Discount { get; set; }
+
+        [Required]
+        public float Bin { get; set; }
+
+        [Required]
+        public Mode Mode { get; set; }
+
+        public string IMEIOrders { get; set; }
+
+        [Required]
+        public int PurchesDetailId { get; set; }
+
+        [ForeignKey(nameof(PurchesDetailId))]
+        public PurchasDetail PurchasDetail { get; set; }
 
         [Required]
         public float TotalAmount { get; set; }
 
-        [ForeignKey("purchesDetailId")]
-        public ICollection<IMEI> IMEIs { get; set; }
-
     }
+
+    public enum Mode
+    {
+        Single = 1,
+        Multi = 2
+    }
+
 }

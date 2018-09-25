@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="Smart_Center.UserControls.Premium.AddPremiumUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Smart_Center.UserControls.Premium"
+                mc:Ignorable="d" 
+             d:DesignHeight="540" d:DesignWidth="1010"
+             Background="#fff"
+             
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+              FlowDirection="RightToLeft"
+        FontFamily="Tahoma" Loaded="UserControl_Loaded"
+             Foreground="#757575">
+
+
+    <Grid>
+        <StackPanel Margin="10" Width="990" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal">
+                <Label FontSize="24" VerticalAlignment="Center" Foreground="#212121" Margin="10,5" FontWeight="ExtraBold">‌قسته‌كێ نوی</Label>
+            </StackPanel>
+            <Separator Margin="0,10" Background="#757575"/>
+
+            <StackPanel Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Left" Orientation="Vertical"  MinHeight="200" Width="300">
+                <StackPanel Margin="0,4">
+                    <Label>ناڤێ كرياري:</Label>
+                    <ComboBox SelectionChanged="cmbCustomer_SelectionChanged" x:Name="cmbCustomer"  IsTextSearchEnabled="True" TextSearch.TextPath="Name" materialDesign:HintAssist.Hint="كریار" DisplayMemberPath="Name"  Width="300" Margin="15,0">
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="0,4">
+                    <Label>كريارين:</Label>
+                    <ComboBox SelectionChanged="cmbOrder_SelectionChanged" IsEnabled="False" x:Name="cmbOrder"  IsTextSearchEnabled="True" TextSearch.TextPath="Id" materialDesign:HintAssist.Hint="كریار" DisplayMemberPath="Id"  Width="300" Margin="15,0">
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="0,4">
+                    <Label>شولێ وی:</Label>
+                    <ComboBox IsEditable="True"  x:Name="cmbWork"  IsTextSearchEnabled="True" TextSearch.TextPath="Name" materialDesign:HintAssist.Hint="شولێ وی" DisplayMemberPath="Name"  Width="300" Margin="15,0" IsReadOnly="False">
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel  Margin="0,4">
+                    <Label>كوژم</Label>
+                    <TextBox Width="300" Margin="15,0" TextAlignment="Center" x:Name="txtAmount" IsReadOnly="True" Text="0" />
+                </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel  Margin="0,4">
+                            <Label>ژمارا قستا</Label>
+                            <TextBox KeyUp="txtPrCount_KeyUp"  TextChanged="txtEveryPay_TextChanged" Width="120" Margin="15,0" TextAlignment="Center" x:Name="txtPrCount" Text="6" />
+                        </StackPanel>
+                        <StackPanel  Margin="0,4">
+                            <Label>هه‌ر قسته‌ك بو روژان</Label>
+                            <TextBox KeyUp="txtEveryPay_KeyUp"  TextChanged="txtEveryPay_TextChanged" Width="120" Margin="15,0" TextAlignment="Center" x:Name="txtDayPerQst" Text="30" />
+                        </StackPanel>
+                    </StackPanel>
+                
+
+                <StackPanel  Margin="0,4">
+                    <Label>پارێ هه‌ر قسته‌كێ</Label>
+                    <TextBox KeyUp="txtEveryPay_KeyUp" TextChanged="txtEveryPay_TextChanged" Width="300" Margin="15,0" TextAlignment="Center" x:Name="txtEveryPay" Text="0" />
+                </StackPanel>
+                    <Separator Margin="0,5" Background="#757575"/>
+
+                    <Button Width="300" Click="onSaveClick" Background="#1976D2" BorderBrush="#1976D2" FontWeight="Bold"  Margin="10,5">هه‌لگرتن</Button>
+                    <Button Width="300" Click="onCloseClick" Background="#FF5252" BorderBrush="#FF5252" FontWeight="Bold" Margin="10,5">گرتن</Button>
+
+
+
+
+                </StackPanel>
+            <StackPanel Orientation="Vertical" Width="700" MinHeight="200">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel  Margin="0,4">
+                            <Label>تێبنی</Label>
+                            <TextBox TextWrapping="Wrap" AcceptsReturn="True" Height="50"  Width="220" Margin="15,0"  x:Name="txtNote" Text="0" />
+                        </StackPanel>
+                        <StackPanel  Margin="10,4">
+                            <Label>ئێكه‌م قست</Label>
+                            <DatePicker SelectedDateChanged="dtFirstPay_SelectedDateChanged" Name="dtFirstPay" Width="200" materialDesign:HintAssist.Hint="به‌روارێ ده‌فعێ" Margin="0,10" FlowDirection="RightToLeft" />
+                        </StackPanel>
+
+                        <StackPanel  Margin="10,4">
+                            <Label>به‌روارێ تومارا قستی</Label>
+                            <DatePicker Name="dtDatePre" Width="200" materialDesign:HintAssist.Hint="به‌روارێ ده‌فعێ" Margin="0,10" FlowDirection="RightToLeft" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <DataGrid IsReadOnly="True" Height="330" CanUserResizeColumns="False" x:Name="prDetailGV" Margin="20,20,20,10" ColumnWidth="*"  CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"  materialDesign:DataGridAssist.CellPadding="13 8 8 8"  materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+
+                            <DataGrid.Columns >
+
+                                <DataGridTextColumn Width="40" Foreground="Black" Binding="{Binding  Id}"
+                                            Header="#"
+                                            />
+
+                                <materialDesign:MaterialDataGridTextColumn Binding="{Binding price }"
+                                                                   Header="كوژم"  />
+                                <materialDesign:MaterialDataGridTextColumn Binding="{Binding price_pay }"
+                                                                   Header="كوژمێ دایی"  />
+
+                                <materialDesign:MaterialDataGridTextColumn Binding="{ Binding payDate , StringFormat={}{0:yyyy-MM-dd}}"
+                                                                   Header="به‌روارێ قستی"  />
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+            </StackPanel>
+            </StackPanel>
+           
+        </StackPanel>
+          
+    </Grid>
+</UserControl>

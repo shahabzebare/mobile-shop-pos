@@ -408,5 +408,10 @@ namespace Smart_Center.UserControls.Purchases
                 txtPayAmount.Text = "0";
             }
         }
+
+        private void txtImei_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

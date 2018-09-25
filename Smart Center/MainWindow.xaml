@@ -128,6 +128,13 @@
                         </StackPanel>
                     </ListViewItem>
 
+                    <ListViewItem x:Name="ItemCutomer" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountMultiple" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="كریار‌" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    
                     <ListViewItem x:Name="ItemPurchas" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Sale" Height="25" Width="25" Margin="10"/>
@@ -139,6 +146,13 @@
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Cart" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="فروتن‌" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="ItemPr" Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AlarmMultiple" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="قست‌" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
 

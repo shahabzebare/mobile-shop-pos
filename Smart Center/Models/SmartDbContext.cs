@@ -16,13 +16,21 @@ namespace Smart_Center.Models
         public DbSet<Debt> Debts { get; set; }
         public DbSet<DebtPay> DebtPays { get; set; }
         public DbSet<IMEI> iMEIs { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { set; get; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<MyDebt> myDebts { get; set; }
+        public DbSet<MyDebtPay> MyDebtPays { get; set; }
+        public DbSet<Work> works { get; set; }
+        public DbSet<Premiums> Premiums { get; set; }
+        public DbSet<PremiumsDetail> PremiumsDetails { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             System.Data.SqlClient.SqlConnectionStringBuilder connectionString = new System.Data.SqlClient.SqlConnectionStringBuilder() {
-                   DataSource = @"DESKTOP-QCB22M1\SQLEXPRESS",
-                   InitialCatalog = "Smart",
+                   DataSource = Properties.Settings.Default.Server,
+                   InitialCatalog = Properties.Settings.Default.Database,
                    IntegratedSecurity =true
             };
 
@@ -39,6 +47,10 @@ namespace Smart_Center.Models
 
             // PRIMARY KEY FOR DIBTS
             modelBuilder.Entity<Debt>().HasKey(x => new { x.Company_Id,x.Purchas_Id});
+
+            // PRIMARY KEY FOR MyDIBTS
+            modelBuilder.Entity<MyDebt>().HasKey(x => new { x.Customer_Id, x.Order_Id });
+
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {

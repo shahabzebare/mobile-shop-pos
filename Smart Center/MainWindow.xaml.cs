@@ -54,11 +54,19 @@ namespace Smart_Center
                     usc = new UserControlProduct();
                     GridMain.Children.Add(usc);
                     break;
+                    
                 case "ItemCompany":
                     usc = new UserControlCompany();
                     UserControlCompany uc = (UserControlCompany)usc;
                     uc.MainWindow = this;
                     GridMain.Children.Add(uc);
+                    break;
+
+                case "ItemCutomer":
+                    usc = new UserControlCustomer();
+                    UserControlCustomer ucc = (UserControlCustomer)usc;
+                    ucc.MainWindow = this;
+                    GridMain.Children.Add(ucc);
                     break;
                 case "ItemPurchas":
                     usc = new UserControlPurchas();
@@ -66,6 +74,20 @@ namespace Smart_Center
                     u.MainWindow = this;
                     GridMain.Children.Add(u);
                     break;
+
+                case "ItemOrder":
+                    usc = new UserControlOrder();
+                    UserControlOrder uss = (UserControlOrder)usc;
+                    uss.MainWindow = this;
+                    GridMain.Children.Add(uss);
+                    break;
+                case "ItemPr":
+                    usc = new UserControlPremium();
+                    UserControlPremium us_s = (UserControlPremium)usc;
+                    us_s.MainWindow = this;
+                    GridMain.Children.Add(us_s);
+                    break;
+                    
                 default:
                     break;
             }
